@@ -371,7 +371,7 @@ namespace Hare
             }
 
             /// <summary>
-            /// Ray-Triangle intersection algorithm, based on the algorithm published by Tomas Akenine-Möller, May 2000
+            /// Ray-Triangle intersection algorithm, based on the algorithm published by Tomas Akenine-Mï¿½ller, May 2000
             /// </summary>
             /// <param name="orig">Ray origin point</param>
             /// <param name="dir">Ray direction vector</param>
@@ -435,7 +435,7 @@ namespace Hare
             }
 
             /// <summary>
-            /// High Performance - Ray-Triangle intersection algorithm, based on the algorithm published by Tomas Akenine-Möller, May 2000
+            /// High Performance - Ray-Triangle intersection algorithm, based on the algorithm published by Tomas Akenine-Mï¿½ller, May 2000
             /// </summary>
             /// <param name="orig">Ray origin point</param>
             /// <param name="dir">Ray direction vector</param>
@@ -510,7 +510,7 @@ namespace Hare
             }
 
             /// <summary>
-            /// Ray-Triangle intersection algorithm, based on the algorithm published by Tomas Akenine-Möller, May 2000
+            /// Ray-Triangle intersection algorithm, based on the algorithm published by Tomas Akenine-Mï¿½ller, May 2000
             /// </summary>
             /// <param name="orig">Ray origin point</param>
             /// <param name="dir">Ray direction vector</param>

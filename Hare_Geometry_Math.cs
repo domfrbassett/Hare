@@ -85,7 +85,7 @@ namespace Hare
                 return Dot(A, Cross(B, C));
             }
 
-            public static double distance(double x1, double y1, double z1, double x2, double y2, double z2)
+            public static double Distance(double x1, double y1, double z1, double x2, double y2, double z2)
             {
                 double dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
                 return Math.Sqrt(dx * dx + dy * dy + dz * dz);
@@ -119,16 +119,20 @@ namespace Hare
            /// <returns></returns>
             public static bool IsCoPlanar(Point[] P)
             {
-                if (P.Length > 3) 
+                const double epsilon = 1e-6;
+
+                if (P.Length < 4) return true; // 0-3 points are trivially coplanar
+
+                Vector firstNormal = Hare_math.Cross(P[1] - P[0], P[2] - P[0]);
+                if (!firstNormal.Normalize()) return false; // If the first triangle is degenerate, return false
+
+                for (int j = 2, k = 3; k < P.Length; j++, k++)
                 {
-                    Vector First_Tri_CP = Hare_math.Cross(P[1] - P[0], P[2] - P[0]);
-                    First_Tri_CP.Normalize();
-                    for (int j = 2, k = 3; k < P.Length; j++, k++)
-                    {
-                        Vector V = Hare_math.Cross(P[j] - P[0], P[k] - P[0]);
-                        double x = Hare_math.Dot(First_Tri_CP, V);
-                        if (x < 1) return false;
-                    }
+                    Vector v = Hare_math.Cross(P[j] - P[0], P[k] - P[0]);
+                    if (!v.Normalize()) continue; // If the triangle is degenerate, skip it
+
+                    double dot = Hare_math.Dot(firstNormal, v);
+                    if (Math.Abs(dot) < 1.0 - epsilon) return false;
                 }
                 return true;
             }
