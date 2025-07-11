@@ -46,15 +46,14 @@ namespace Hare
             {
             }
 
-            public bool Normalize()
+            public void Normalize()
             {
                 double factor = dx * dx + dy * dy + dz * dz;
-                if (factor == 0) return false;
+                if (factor == 0) return;
                 factor = Math.Sqrt(factor);
                 dx /= factor;
                 dy /= factor;
                 dz /= factor;
-                return true;
             }
 
             public double Length()
